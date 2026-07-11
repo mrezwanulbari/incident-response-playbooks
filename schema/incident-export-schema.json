@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mrezwanulbari/incident-response-playbooks/schema/incident-export-schema.json",
+  "title": "IR Playbook Tracker Incident Export",
+  "description": "Schema for the JSON export produced by tooling/playbook-tracker/playbook_tracker.py — formalizes the incident/phase-log/metrics data model.",
+  "type": "object",
+  "required": ["incident", "phases", "metrics"],
+  "properties": {
+    "incident": {
+      "type": "object",
+      "required": ["id", "name", "playbook", "status", "started_at"],
+      "properties": {
+        "id": { "type": "integer" },
+        "name": { "type": "string" },
+        "playbook": { "type": "string" },
+        "description": { "type": ["string", "null"] },
+        "status": { "type": "string", "enum": ["active", "closed"] },
+        "started_at": { "type": "string", "format": "date-time" },
+        "closed_at": { "type": ["string", "null"], "format": "date-time" }
+      }
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["phase", "timestamp"],
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": ["detection", "containment", "eradication", "recovery", "post_incident"]
+          },
+          "note": { "type": ["string", "null"] },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "time_to_containment": { "type": "string" },
+        "time_to_eradication": { "type": "string" },
+        "time_to_recovery": { "type": "string" }
+      }
+    }
+  }
+}
