@@ -30,6 +30,11 @@ Every playbook follows the same NIST SP 800-61r2 structure (Detection & Triage �
 |---|---|
 | `schema/incident-export-schema.json` | Formal JSON Schema for the playbook tracker's export format. **Validated** against a real export produced by `playbook_tracker.py` |
 
+### Further Resources
+| File | Description |
+|---|---|
+| `resources/related-open-source-tools.md` | Short, opinionated pointer list to OSS case management, SOAR, and fleet-forensics tools (TheHive, Shuffle, GRR, Velociraptor, osquery), organized around where each fits alongside what's in this repo. For comprehensive category coverage, see [awesome-incident-response](https://github.com/meirwah/awesome-incident-response), the canonical curated list this page points to rather than duplicates |
+
 ## How the Pieces Connect
 
 1. **Severity triage** runs first — 60 seconds to get a defensible initial classification
@@ -52,3 +57,4 @@ Maintained by Shakil Md. Rezwanul Bari, Cyber Security Engineer with 17+ years o
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
